@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group = 'palchilpalsa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.7.5'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // QR코드 생성
+    implementation 'com.google.zxing:zxingorg:3.5.0'
+
+    // jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // h2 db
+    implementation 'com.h2database:h2:1.4.200'
+
+    //유효성
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    //mysql db
+    runtimeOnly 'mysql:mysql-connector-java'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

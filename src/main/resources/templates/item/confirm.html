@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="css/bootstrap.min.css" rel="stylesheet">
+    <title>8784</title>
+</head>
+<body>
+<div th:insert="~{fragment/nav :: nav}"></div>
+<div class="container">
+    <div class="py-5 text-center">
+        <h1>登録完了👏👏👏</h1>
+    </div>
+    <form th:object="${item}">
+        <div class="text-center">
+            <h3 for="qrCode">QR コード</h3>
+            <img id="qrCode" th:src="|data:image/png;base64,${base64}|"/>
+        </div>
+
+        <div class="mt-2">
+            <label for="category">카테고리</label>
+            <input type="text" id="category" th:field="*{category}" class="form-control" readonly>
+        </div>
+        <div>
+            <label for="name">상품명</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control" readonly>
+        </div>
+        <div>
+            <label for="store">구입처</label>
+            <input type="text" id="store" th:field="*{store}" class="form-control" readonly>
+        </div>
+        <div>
+            <label for="cost">원가</label>
+            <input type="text" id="cost" th:field="*{cost}" class="form-control" readonly>
+        </div>
+        <div>
+            <label for="price">판매가</label>
+            <input type="text" id="price" th:field="*{price}" class="form-control" readonly>
+        </div>
+        <hr class="my-4">
+        <p>在庫数量</p>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="medium">medium</label>
+                <input type="text" id="medium" class="form-control" th:field="*{medium}" readonly>
+            </div>
+            <div class="col-md-4">
+                <label for="large">large</label>
+                <input type="text" id="large" class="form-control" th:field="*{large}" readonly>
+            </div>
+            <div class="col-md-4">
+                <label for="free">free</label>
+                <input type="text" id="free" class="form-control" th:field="*{free}" readonly>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <label for="shoes230">230</label>
+                <input type="text" id="shoes230" class="form-control" th:field="*{shoes230}" readonly>
+            </div>
+            <div class="col-md-4">
+                <label for="shoes240">240</label>
+                <input type="text" id="shoes240" class="form-control" th:field="*{shoes240}" readonly>
+            </div>
+            <div class="col-md-4">
+                <label for="shoes250">250</label>
+                <input type="text" id="shoes250" class="form-control" th:field="*{shoes250}" readonly>
+            </div>
+        </div>
+    </form>
+    <div class="row text-center">
+        <div class="col-md-6 m-auto">
+            <button class="w-100 btn btn-success btn-lg my-3"
+                    th:onclick="|location.href='@{/item/add}'|" type="button">
+                もっと登録する
+            </button>
+        </div>
+        <div class="col-md-6 m-auto">
+            <button class="w-100 btn btn-warning btn-lg my-3"
+                    th:onclick="|location.href='@{/item/list}'|" type="button">
+                商品リスト
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
